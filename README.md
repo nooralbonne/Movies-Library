@@ -10,24 +10,31 @@
 This project is a movie app that lets users browse the latest films by category.
 
 ## Getting Started
-- draw WRRC to figure out your project
-- you should download node- LTC
-- you should download Express: 
-1.npm init -y -y : yes
-2.create index.js file , name is optional
-3.npm install express to install express package to use it
-4.run the server using node index.js
-5.install nodemon npm install nodemon
+## Project Setup Steps
 
-your code should contain these lines as basic :
--const express = require("express");
-const app = express();
-app.get("/", (req, res) => {
-    // Your route handling code here
-});
-app.listen(8080, () => {
-    console.log("Listening to port 8080");
-});
+1. **Draw WRRC (client, server, requst, responce) to Figure Out Your Project**: Visualize the process flow of your project using the WRRC model to understand how data is processed and displayed.
+
+2. **Download Node.js**: Ensure you have Node.js installed. You can download it from [Node.js website](https://nodejs.org/).
+
+3. **Download Express.js**:
+   - Initialize a new Node.js project: `npm init -y`.
+   - Create an `index.js` file (name is optional).
+   - Install Express.js: `npm install express`.
+   - Set up your server:
+     ```bash
+     const express = require("express");
+     const app = express();
+     app.get("/", (req, res) => {
+         // Your route handling code here
+     });
+     app.listen(8080, () => {
+         console.log("Listening to port 8080");
+     });
+     ```
+4. **Run the Server**:
+   - Start your server using Node.js: `node index.js`.
+   - Alternatively, use Nodemon for automatic server restarts during development: `npm install nodemon`.
+
 
 
 ## Project Features
