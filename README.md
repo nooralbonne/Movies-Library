@@ -3,7 +3,6 @@
 **Author Name**: NOOR ALBONNE
 
 ## WRRC
-Add an image of your WRRC here
 ![favoritepageWRRC](images/favoritepageWRRC.png)
 ![homepageWRRC](images/homepageWRRC.png)
 
