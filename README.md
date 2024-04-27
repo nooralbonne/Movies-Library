@@ -4,8 +4,8 @@
 
 ## WRRC
 Add an image of your WRRC here
-![favoritepageWRRC] (images/favoritepageWRRC.png)
-![homepageWRRC] (images/homepageWRRC.png)
+![favoritepageWRRC](images/favoritepageWRRC.png)
+![homepageWRRC](images/homepageWRRC.png)
 
 ## Overview
 This project is a movie app that lets users browse the latest films by category.
