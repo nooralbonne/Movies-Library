@@ -10,18 +10,39 @@
 This project is a movie app that lets users browse the latest films by category.
 
 ## Getting Started
+
 ## Project Setup Steps
 
-1. **Draw WRRC (client, server, requst, responce) to Figure Out Your Project**: Visualize the process flow of your project using the WRRC model to understand how data is processed and displayed.
+Set up your server repository:
 
-2. **Download Node.js**: Ensure you have Node.js installed. You can download it from [Node.js website](https://nodejs.org/).
+1. **Create a repository on GitHub**: Create a repository called Movies-Library on GitHub to host your project.
 
-3. **Download Express.js**:
-   - Initialize a new Node.js project: `npm init -y`.
-   - Create an `index.js` file (name is optional).
-   - Install Express.js: `npm install express`.
-   - Set up your server:
+2. **Initialize your project**: Run the following command in your project directory to initialize your project with npm:
+    ```bash
+    npm init -y
+    ```
+
+3. **Create a new branch**: Create a new branch called Lab11 to work on your project:
+    ```bash
+    git checkout -b Lab11
+    ```
+
+4. **Create basic file structure**:
+   - Create a server file (e.g., `server.js`) to define your Express.js server.
+   - Create a `.gitignore` file to specify files and directories to ignore in Git.
+   - Create an `.eslintrc.json` file to configure ESLint for linting your JavaScript code.
+
+Project Setup with Express.js:
+
+1. **Download Node.js**: Ensure you have Node.js installed. You can download it from [Node.js website](https://nodejs.org/).
+
+2. **Download Express.js**:
+   - Install Express.js: Run the following command to install Express.js:
      ```bash
+     npm install express
+     ```
+   - Set up your server:
+     ```javascript
      const express = require("express");
      const app = express();
      app.get("/", (req, res) => {
@@ -31,8 +52,9 @@ This project is a movie app that lets users browse the latest films by category.
          console.log("Listening to port 8080");
      });
      ```
-4. **Run the Server**:
-   - Start your server using Node.js: `node index.js`.
+
+3. **Run the Server**:
+   - Start your server using Node.js: `node server.js`.
    - Alternatively, use Nodemon for automatic server restarts during development: `npm install nodemon`.
 
 
