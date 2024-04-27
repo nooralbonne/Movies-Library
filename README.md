@@ -10,9 +10,6 @@
 This project is a movie app that lets users browse the latest films by category.
 
 ## Getting Started
-
-## Project Setup Steps
-
 Set up your server repository:
 
 1. **Create a repository on GitHub**: Create a repository called Movies-Library on GitHub to host your project.
@@ -57,7 +54,17 @@ Project Setup with Express.js:
    - Start your server using Node.js: `node server.js`.
    - Alternatively, use Nodemon for automatic server restarts during development: `npm install nodemon`.
 
+<!-- LAB12 -->
 
+ -- **3rd party API**
+ 1. search for API 
+ 2. Read Documination
+ 3. Request --> API
+
+ -- **33 WAYS TO REQUEST SERVER**
+ 1. fetch 
+ 2. axios = which we use
+ 3. superAgent
 
 ## Project Features
 
