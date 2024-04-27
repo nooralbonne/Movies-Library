@@ -3,8 +3,10 @@
 **Author Name**: NOOR ALBONNE
 
 ## WRRC
-![favoritepageWRRC](images/favoritepageWRRC.png)
-![homepageWRRC](images/homepageWRRC.png)
+![Favorite Page](images/favoritepageWRRC.png)
+![Homepage](images/homepageWRRC.png)
+![Lab 12](images/LAB12WRRC.png)
+
 
 ## Overview
 This project is a movie app that lets users browse the latest films by category.
