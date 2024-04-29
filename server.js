@@ -168,6 +168,67 @@ function addMovieHandler(req, res) {
             res.status(500).json({ error: 'Failed to add movie' });
         });
 }
+// ======================================LAB 14===============================
+// ==========/UPDATE/id   (edit movie)============
+// PUT http://localhost:3001/editMovie/1
+app.put('/editMovie/:id', editMovieHandler);
+function editMovieHandler(req, res) {
+    let movieID = req.params.id; // Get the movie ID from request params
+    let { comments } = req.body; // Only update comments, other fields remain unchanged
+    let sql = `UPDATE movies
+               SET comments = $1
+               WHERE id = $2;`; // Update comments where ID matches
+    let values = [comments, movieID]; // Pass movieID as the second value
+    
+    client.query(sql, values)
+        .then(result => {
+            res.send("Successfully updated");
+        })
+        .catch(error => {
+            console.error('Error updating movie:', error);
+            res.status(500).send("Failed to update movie");
+        });
+}
+
+// ==========/DELETE/id  (delete movie)============
+// DELETE http://localhost:3001/deleteMovie/10
+app.delete('/deleteMovie/:id', deleteMovieHandler);
+function deleteMovieHandler(req, res) {
+    let { id } = req.params; // Get the movie ID from request params
+    let sql = `DELETE FROM movies WHERE id = $1;`; // Use the correct table name and column
+    let values = [id];
+    client.query(sql, values)
+        .then(result => {
+            res.status(204).send("Successfully deleted");
+        })
+        .catch(error => {
+            console.error('Error deleting movie:', error);
+            res.status(500).send("Failed to delete movie");
+        });
+}
+
+// ==========getMovie/id  (get movie)============
+// GET   http://localhost:3001/getMovie/1
+app.get('/getMovie/:id', getMovieByIdHandler);
+function getMovieByIdHandler(req, res) {
+    const movieId = req.params.id; // Extract the movie ID from the request parameters
+    const sql = 'SELECT * FROM movies WHERE id = $1'; // SQL query to select the movie by ID
+    const values = [movieId]; // Values to be used in the SQL query
+    client.query(sql, values)
+        .then(result => {
+            const movie = result.rows[0]; // Extract the first row (should be the only row)
+            if (movie) {
+                res.json(movie); // Send the retrieved movie as JSON response
+            } else {
+                res.status(404).json({ error: 'Movie not found' }); // Movie with the given ID not found
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching movie:', error);
+            res.status(500).json({ error: 'Failed to fetch movie' }); // Error fetching the movie from the database
+        });
+}
+
 
 // ========================================================================
 // Middleware for handling errors
