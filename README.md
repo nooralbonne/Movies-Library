@@ -7,6 +7,8 @@
 ![Homepage](images/homepageWRRC.png)
 ![Lab 12](images/LAB12WRRC.png)
 ![Lab 13](images/LABB13WRRC.png)
+![Lab 14](images/PUTLAB14WRRC.png)
+![Lab 14](images/DELETEWRRCLAB14.png)
 
 ## Overview
 This project is a movie app that lets users browse the latest films by category.
@@ -75,6 +77,13 @@ Project Setup with Express.js:
  2. creat a table
  3. connect server to DB
  4. READ +SEND from DB
+
+ <!-- LAB14 -->
+ -- **CRUD**
+ 1. Create update and delete requests
+ 2. Update (UPDATE) a record in the database
+ 3. Delete (Delete) a record from the database
+ 4. Read (SELECT) a record from the database
 
 ## Project Features
 
