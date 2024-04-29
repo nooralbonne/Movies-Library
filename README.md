@@ -6,7 +6,7 @@
 ![Favorite Page](images/favoritepageWRRC.png)
 ![Homepage](images/homepageWRRC.png)
 ![Lab 12](images/LAB12WRRC.png)
-
+![Lab 13](images/LABB13WRRC.png)
 
 ## Overview
 This project is a movie app that lets users browse the latest films by category.
@@ -67,6 +67,14 @@ Project Setup with Express.js:
  1. fetch 
  2. axios = which we use
  3. superAgent
+
+
+<!-- LAB13 -->
+  -- **DataBase**
+ 1. creat DB
+ 2. creat a table
+ 3. connect server to DB
+ 4. READ +SEND from DB
 
 ## Project Features
 
