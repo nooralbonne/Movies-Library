@@ -11,9 +11,18 @@ const apiKey =  process.env.API_KEY;
 
 const data = require('./Movie Data/data.json');
 
+// ==lab13
+const { Client } =  require('pg')
+const url = `postgres://noor:noora07878@localhost:5432/databasemovie`
+const client = new Client(url) //new instance from client
+
+// Parser  
+const bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({extended :false}));
+app.use(bodyParser.json());
 
 // const port = 3000;
-// app.use(cors())
+app.use(cors())
 
 // Home Page Endpoint: /
 app.get('/',spiderHandler);
@@ -27,8 +36,6 @@ function Movie(title, poster_path, overview) {
     this.poster_path = poster_path;
     this.overview = overview;
 }
-
-
 
 // Favorite Page Endpoint: “/favorite”
 app.get('/favorite',favoriteHandler);
@@ -124,6 +131,44 @@ function MovieLab12(id, title, release_date, poster_path, overview) {
     this.poster_path = poster_path;
     this.overview = overview;
 }
+// ======================================LAB 13===============================
+// ==========get Movies============
+app.get('/getMovies', getMoviesHandler);
+function getMoviesHandler(req, res) {
+    const sql = `SELECT * FROM movies`; // Corrected table name to 'movies'
+    client.query(sql)
+        .then((result) => {
+            const data = result.rows;
+            res.json(data);
+            console.log(data);
+        })
+        .catch((error) => { // Added error handling
+            console.error('Error fetching movies:', error);
+            res.status(500).json({ error: 'Failed to fetch movies' });
+        });
+}
+
+// ==========add Movie============
+app.post('/addMovie', addMovieHandler);
+function addMovieHandler(req, res) {
+    console.log(req.body);
+    const { title, director, release_year, comments } = req.body; // destructuring  ES6
+    
+    const sql = `INSERT INTO movies(title, director, release_year, comments)
+                 VALUES ($1, $2, $3, $4) RETURNING *;`;
+    const values = [title, director, release_year, comments];
+
+    client.query(sql, values)
+        .then((result) => {
+            console.log(result.rows);
+            res.status(201).json(result.rows);
+        })
+        .catch((error) => { // Added error handling
+            console.error('Error adding movie:', error);
+            res.status(500).json({ error: 'Failed to add movie' });
+        });
+}
+
 // ========================================================================
 // Middleware for handling errors
 app.use((err, req, res, next) => {
@@ -142,7 +187,12 @@ app.use((req, res, next) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-});
+// ==lab13 (server connect to DB)
+ client.connect().then(()=>{
+    app.listen(port, () => {
+        console.log(`Server is running on http://localhost:${port}`);
+    });
+})
+.catch()
+
 
