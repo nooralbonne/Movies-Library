@@ -13,7 +13,8 @@ const data = require('./Movie Data/data.json');
 
 // ==lab13
 const { Client } =  require('pg')
-const url = `postgres://noor:noora07878@localhost:5432/databasemovie`
+// const url = `postgres://noor:noora07878@localhost:5432/databasemovie`
+const url = `postgres://sdryefbw:Sjnc1UounHTsy-1YBbNmYVQ2jiRmHMqo@isabelle.db.elephantsql.com/sdryefbw`
 const client = new Client(url) //new instance from client
 
 // Parser  
